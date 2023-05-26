@@ -1,0 +1,162 @@
+@use "../global/" as *;
+
+.navbar {
+  max-width: 133rem;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.7rem 2rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: transparent;
+  z-index: 99999;
+  margin: 0 auto;
+
+  &__img {
+    width: 14.5rem;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__links {
+    display: flex;
+    list-style: none;
+    gap: 2.1rem;
+
+    a {
+      font-size: $p-size;
+      font-family: $text-font;
+      font-weight: 500;
+      color: $text-black;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover {
+        color: $text-orange;
+      }
+    }
+
+    @media (max-width: 1000px) {
+      display: none;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 2.5rem;
+    font-size: $p-size;
+    font-family: $text-font;
+    font-weight: 500;
+    align-items: center;
+
+    @media (max-width: 1000px) {
+      display: none;
+    }
+
+    &__sign-in {
+      color: $text-black;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover {
+        color: $text-orange;
+      }
+    }
+
+    &__register {
+      background-color: $text-orange;
+      color: white;
+      padding: 1.5rem 3rem;
+      border-radius: 3px;
+      box-shadow: 0 10px 15px 0 rgb(255 83 48 / 35%);
+      transition: all 0.3s;
+
+      &:hover {
+        box-shadow: 0 10px 15px 0 rgb(255 83 48 / 50%);
+        background-color: #fa4226;
+      }
+    }
+
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+//  mobile nav
+
+.mobile-hamb {
+  font-size: 2.8rem;
+  display: none;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    color: $text-orange;
+  }
+
+  @media (max-width: 1000px) {
+    display: flex;
+  }
+}
+
+.mobile-navbar {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  background-color: $bg-white;
+  z-index: 999999;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+
+  &__close {
+    font-size: 3rem;
+    position: absolute;
+    top: 3.5rem;
+    right: 3.5rem;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      color: $text-orange;
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    font-size: 2.3rem;
+    gap: 3rem;
+    text-align: center;
+
+    li {
+      a {
+        text-decoration: none;
+        color: $text-black;
+        font-weight: 500;
+        transition: all 0.3s;
+
+        &:hover {
+          color: $text-orange;
+        }
+      }
+    }
+  }
+}
+
+.open-nav {
+  left: 0;
+}

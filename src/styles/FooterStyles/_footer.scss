@@ -1,0 +1,138 @@
+@use "../global" as *;
+
+footer {
+  background-color: $bg-white;
+  padding: 10rem 0;
+}
+
+.footer-content {
+  display: grid;
+  color: #010103;
+  grid-template-columns: 27fr 21fr 21fr 21fr;
+  gap: 8rem;
+  justify-content: center;
+  text-align: left;
+  color: $text-black;
+
+  @media (max-width: 1100px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 650px) {
+    grid-template-columns: 1fr;
+  }
+
+  &__1 {
+    list-style: none;
+    // max-width: 30rem;
+
+    @media (max-width: 650px) {
+      text-align: center;
+    }
+
+    li {
+      a {
+        text-decoration: none;
+        color: $text-black;
+        transition: all 0.2s;
+
+        &:hover {
+          color: $text-orange;
+        }
+      }
+
+      &:nth-child(1) {
+        font-size: $h3-size;
+        margin-bottom: 1.5rem;
+
+        span {
+          font-weight: 700;
+        }
+      }
+
+      &:nth-child(2) {
+        font-size: $p-size;
+        color: $text-gray;
+        line-height: 1.7;
+        margin-bottom: 3rem;
+      }
+
+      &:nth-child(3),
+      &:nth-child(4) {
+        font-size: $p-size;
+        font-family: $text-font;
+        font-weight: 500;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  &__2 {
+    list-style: none;
+
+    @media (max-width: 650px) {
+      text-align: center;
+    }
+
+    a {
+      text-decoration: none;
+      color: $text-black;
+      transition: all 0.2s;
+
+      &:hover {
+        color: $text-orange;
+      }
+    }
+
+    li {
+      font-size: $p-size;
+      margin-bottom: 1rem;
+
+      &:nth-child(1) {
+        font-size: $h3-size;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-family: $titles-font;
+        cursor: auto;
+      }
+    }
+
+    input {
+      font-family: $text-font;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 26px;
+      background-color: #ececec;
+      border-width: 1px;
+      border-color: transparent;
+      padding: 10px 60px;
+      outline: none;
+      margin-top: 1rem;
+
+      @media (max-width: 1100px) {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.submit-email {
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+  background-color: #ff4d30;
+  padding: 1.5rem 2.5rem;
+  border-radius: 0.3rem;
+  box-shadow: 0 10px 15px 0 rgb(255 83 48 / 25%);
+  transition: all 0.3s;
+  border: 2px solid #ff4d30;
+  font-size: 1.6rem;
+  width: fit-content;
+  cursor: pointer;
+  width: 100%;
+
+  &:hover {
+    box-shadow: 0 10px 15px 0 rgb(255 83 48 / 40%);
+    background-color: #fa4226;
+  }
+}

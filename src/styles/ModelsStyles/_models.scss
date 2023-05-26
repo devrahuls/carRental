@@ -1,0 +1,140 @@
+@use "../global" as *;
+
+.models-div {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 3rem;
+  align-items: center;
+  text-align: center;
+  padding: 10rem 0;
+  width: 110rem;
+  margin: 0 auto;
+
+  @media (max-width: 1150px) {
+    grid-template-columns: 1fr 1fr;
+    width: fit-content;
+  }
+
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr;
+    width: fit-content;
+  }
+
+  &__box {
+    border: 1px solid #d5d5d5;
+    border-radius: 0.3rem;
+    display: flex;
+    width: 35rem;
+    flex-direction: column;
+
+    @media (max-width: 400px) {
+      grid-template-columns: 1fr;
+      width: 100%;
+    }
+
+    &__img {
+      width: 100%;
+      height: auto;
+      border-radius: 0.3rem;
+
+      img {
+        width: 100%;
+        height: 27rem;
+      }
+    }
+
+    &__descr {
+      padding: 2rem 3rem;
+      display: flex;
+      flex-direction: column;
+      color: $text-black;
+
+      &__name-price {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &__name {
+          display: flex;
+          flex-direction: column;
+          text-align: left;
+          gap: 0.5rem;
+
+          p {
+            font-size: $h3-size;
+            font-weight: 700;
+          }
+
+          span {
+            display: flex;
+            gap: 0.4rem;
+
+            i {
+              font-size: 1.4rem;
+              color: #ffc933;
+            }
+          }
+        }
+
+        &__price {
+          display: flex;
+          flex-direction: column;
+          text-align: right;
+
+          h4 {
+            font-size: 2.8rem;
+          }
+
+          p {
+            font-size: $p-size;
+          }
+        }
+
+        &__details {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          row-gap: 2rem;
+          column-gap: 7rem;
+          margin-top: 2.5rem;
+          margin: 2rem auto;
+          padding-bottom: 2.5rem;
+          border-bottom: 1px solid #c6c6c6;
+
+          span {
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: #777777;
+            text-align: left;
+
+            i {
+              color: $text-black;
+            }
+          }
+        }
+
+        &__btn {
+          background-color: #ff4d30;
+          padding: 1.8rem 3rem;
+          border-radius: 0.3rem;
+          box-shadow: 0 10px 15px 0 rgb(255 83 48 / 35%);
+          transition: all 0.3s;
+          border: 2px solid #ff4d30;
+          font-size: 1.8rem;
+          cursor: pointer;
+
+          &:hover {
+            box-shadow: 0 10px 15px 0 rgb(255 83 48 / 60%);
+            background-color: #fa4226;
+          }
+
+          a {
+            text-decoration: none;
+            color: white;
+            font-weight: 700;
+          }
+        }
+      }
+    }
+  }
+}

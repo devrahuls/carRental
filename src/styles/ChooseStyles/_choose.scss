@@ -1,0 +1,132 @@
+@use "../global" as *;
+
+.choose-section {
+  background-color: white;
+  padding: 2rem 0 10rem 0;
+  background-image: url("/src/images/chooseUs/bg.png");
+  background-position: -225px 255px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.choose-container {
+  display: flex;
+  flex-direction: column;
+
+  &__img {
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+
+    @media (max-width: 550px) {
+      width: 100%;
+    }
+  }
+}
+
+.text-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 3rem;
+  width: 100%;
+
+  @media (max-width: 1000px) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 5.5rem;
+  }
+
+  &__left {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    max-width: 50rem;
+    color: $text-black;
+
+    @media (max-width: 1000px) {
+      align-items: center;
+      text-align: center;
+    }
+
+    h4 {
+      font-size: $h4-size;
+      margin-bottom: 0.7rem;
+      font-weight: 600;
+      font-family: $text-font;
+    }
+
+    h2 {
+      font-size: $h2-size;
+      line-height: 1.2;
+      margin-bottom: 2rem;
+    }
+
+    p {
+      font-size: $p-size;
+      font-family: $text-font;
+      line-height: 1.5;
+      color: $text-gray;
+      margin-bottom: 3.3rem;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+      font-weight: 700;
+      background-color: #ff4d30;
+      padding: 1.5rem 2.5rem;
+      border-radius: 0.3rem;
+      box-shadow: 0 10px 15px 0 rgb(255 83 48 / 35%);
+      transition: all 0.3s;
+      border: 2px solid #ff4d30;
+      font-size: $p-size;
+      width: fit-content;
+
+      &:hover {
+        box-shadow: 0 10px 15px 0 rgb(255 83 48 / 60%);
+        background-color: #fa4226;
+      }
+    }
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    gap: 4.5rem;
+    max-width: 44rem;
+
+    &__box {
+      display: flex;
+
+      @media (max-width: 550px) {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      img {
+        width: 11rem;
+        height: 11rem;
+        margin-right: 1.1rem;
+      }
+
+      &__text {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: center;
+
+        h4 {
+          font-size: $h3-size;
+        }
+
+        p {
+          font-size: $p-size;
+          color: $text-gray;
+          font-family: $text-font;
+          line-height: 1.3;
+        }
+      }
+    }
+  }
+}

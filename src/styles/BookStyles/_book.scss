@@ -1,0 +1,471 @@
+@use "../global" as *;
+
+.book-section {
+  position: relative;
+
+  background: linear-gradient(to bottom, $bg-gray 20%, $bg-white 80%);
+}
+
+.book-content {
+  margin: 0 auto;
+  margin-bottom: 10rem;
+
+  &__box {
+    background-color: $bg-white;
+    width: 100%;
+    padding: 4rem 4.5rem 5rem 5.5rem;
+    box-shadow: 0 10px 20px 0 rgb(0 0 0 / 10%);
+    height: auto;
+    position: relative;
+    z-index: 4;
+    color: white;
+    border-radius: 5px;
+    background-image: url("/src/images/book-car/book-bg.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    color: $text-black;
+
+    @media (max-width: 400px) {
+      padding: 4rem 2.5rem 5rem 2.5rem;
+    }
+
+    h2 {
+      font-size: $h3-size;
+      font-weight: 700;
+      margin-bottom: 2.7rem;
+    }
+
+    .box-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: auto auto auto;
+      gap: 2rem;
+
+      b {
+        color: $text-orange;
+      }
+
+      @media (max-width: 1000px) {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      @media (max-width: 630px) {
+        grid-template-columns: 1fr;
+      }
+
+      &__car-type {
+        display: flex;
+        flex-direction: column;
+
+        label {
+          font-size: $p-size;
+          font-weight: 600;
+          margin-bottom: 1.2rem;
+
+          i {
+            color: $text-orange;
+          }
+        }
+
+        select {
+          font-size: 1.5rem;
+          color: #ababab;
+          font-family: $text-font;
+          border: 1px solid #ccd7e6;
+          border-radius: 3px;
+          font-weight: 400;
+          padding: 1.2rem 1.3rem;
+          outline: none;
+        }
+      }
+
+      &__car-time {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+
+        input {
+          outline: none;
+          color: #878585;
+          padding-right: 3rem;
+          border: 1px solid #ccd7e6;
+        }
+
+        label {
+          font-size: 1.6rem;
+          font-weight: 600;
+          margin-bottom: 1.2rem;
+
+          i {
+            color: $text-orange;
+          }
+        }
+
+        ::-webkit-datetime-edit {
+          padding: 1.3rem 1.3rem;
+        }
+
+        ::-webkit-calendar-picker-indicator {
+          cursor: pointer;
+          font-size: 1.6rem;
+        }
+      }
+    }
+
+    button {
+      padding: 1.3rem 1.3rem;
+      height: fit-content;
+      align-self: self-end;
+      border: none;
+      font-family: $text-font;
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: white;
+      background-color: $text-orange;
+      box-shadow: 0 10px 15px rgb(255 83 48 / 35%);
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover {
+        box-shadow: 0 10px 15px rgb(255 83 48 / 55%);
+      }
+    }
+  }
+}
+
+.error-message {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  padding: 1rem 1.4rem;
+  margin-bottom: 1.8rem;
+  margin-top: -1rem;
+  border: 1px solid transparent;
+  border-radius: 0.8rem;
+  font-size: $p-size;
+  font-weight: 500;
+
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+
+  i {
+    cursor: pointer;
+  }
+}
+
+.booking-done {
+  color: #2a6817;
+  background-color: #c3fabe;
+  border-color: #f5c6cb;
+  padding: 1rem 1.4rem;
+  margin-bottom: 1.8rem;
+  margin-top: -1rem;
+  border: 1px solid transparent;
+  border-radius: 0.8rem;
+  font-size: $p-size;
+  font-weight: 500;
+
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+
+  i {
+    cursor: pointer;
+  }
+}
+
+// modal & overlay
+
+.active-modal {
+  opacity: 1 !important;
+  display: flex !important;
+}
+
+.modal-overlay {
+  opacity: 0;
+  display: none;
+
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 999999999;
+  top: 0;
+  right: 0;
+}
+
+.booking-modal {
+  opacity: 0;
+  display: none;
+
+  flex-direction: column;
+  position: fixed;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  z-index: 999999999999;
+  top: 54%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 83rem;
+  height: 100vh;
+  border: 2px solid white;
+  background-color: rgba(255, 255, 255);
+  padding-right: 2px;
+  color: $text-black;
+
+  @media (max-width: 800px) {
+    width: 100%;
+  }
+
+  @media (max-width: 600px) {
+    top: 50%;
+  }
+
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    background-color: $text-orange;
+    color: white;
+    align-items: center;
+
+    h2 {
+      font-size: $h3-size;
+      text-transform: uppercase;
+    }
+
+    i {
+      font-size: 2.5rem;
+      color: rgba(255, 255, 255, 0.919);
+      cursor: pointer;
+      transition: all 0.2;
+
+      &:hover {
+        color: white;
+      }
+    }
+  }
+
+  &__message {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem 3rem;
+    background-color: #ffeae6;
+
+    h4 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: $text-orange;
+
+      i {
+        font-size: 2.5rem;
+      }
+    }
+
+    p {
+      font-size: 1.7rem;
+      color: #777777;
+      font-weight: 500;
+      line-height: 1.6;
+    }
+  }
+
+  &__car-info {
+    background-color: white;
+    padding: 3rem 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid #7777779f;
+
+    @media (max-width: 650px) {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    &__dates {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      h5 {
+        font-size: 1.8rem;
+        color: $text-orange;
+      }
+
+      span {
+        display: flex;
+        gap: 1rem;
+
+        @media (max-width: 650px) {
+          grid-template-columns: 1fr;
+          text-align: center;
+          justify-content: center;
+        }
+
+        i {
+          font-size: 1.8rem;
+          padding-top: 0.2rem;
+          color: #777777;
+
+          @media (max-width: 650px) {
+            display: none;
+          }
+        }
+
+        h6 {
+          font-size: 1.5rem;
+          margin-bottom: 0.2rem;
+        }
+
+        p {
+          font-size: $p-size;
+          color: #777777;
+        }
+      }
+    }
+
+    &__model {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+
+      @media (max-width: 650px) {
+        margin-top: 3.5rem;
+      }
+
+      h5 {
+        font-size: 1.8rem;
+        color: $text-orange;
+
+        span {
+          color: $text-black;
+        }
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  &__person-info {
+    padding: 3rem 3rem;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+
+    h4 {
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      color: $text-orange;
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+.input-time {
+  text-align: center;
+  width: 8rem;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.info-form {
+  display: flex;
+  flex-direction: column;
+
+  &__checkbox {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    font-size: $p-size;
+    color: #565454;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+
+    input {
+      width: 1.6rem;
+      height: 1.6rem;
+    }
+  }
+
+  &__1col {
+    grid-template-columns: 1fr !important;
+  }
+
+  &__2col,
+  &__1col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 1rem 0;
+
+    @media (max-width: 650px) {
+      grid-template-columns: 1fr;
+    }
+
+    span {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+
+      label {
+        font-size: $p-size;
+        font-weight: 500;
+        color: #777777;
+
+        b {
+          color: $text-orange;
+        }
+      }
+
+      input {
+        padding: 14px 15px;
+        background-color: #dbdbdb;
+        color: #555;
+        font-size: 1.5rem;
+        font-weight: 500;
+        outline: none;
+        border: none;
+      }
+    }
+  }
+}
+
+.reserve-button {
+  background-color: #dbdbdb;
+  margin: 0 -3rem;
+  padding: 3rem;
+  text-align: right;
+
+  @media (max-width: 650px) {
+    text-align: center;
+  }
+
+  button {
+    font-size: $h3-size;
+    color: white;
+    font-weight: 700;
+    background-color: $text-orange;
+    border: 1px solid yellow;
+    padding: 1.2rem 2rem;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+      background-color: #fe3516;
+    }
+  }
+}
+
+.dates-div {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}

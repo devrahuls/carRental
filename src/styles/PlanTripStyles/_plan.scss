@@ -1,0 +1,73 @@
+@use "../global" as *;
+
+.plan-section {
+  background-color: $bg-white;
+  padding: 5.3rem 0;
+}
+
+.plan-container {
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    margin: 0 auto;
+    text-align: center;
+    color: $text-black;
+
+    h3 {
+      font-size: $h3-size;
+      font-family: $text-font;
+      font-weight: 500;
+    }
+
+    h2 {
+      font-size: $h2-size;
+      font-family: $titles-font;
+      margin: 1.3rem 0 3rem 0;
+    }
+  }
+
+  &__boxes {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    margin-top: 3.7rem;
+    padding: 0 3rem;
+
+    @media (max-width: 1021px) {
+      grid-template-columns: 1fr 1fr;
+      row-gap: 2rem;
+    }
+
+    @media (max-width: 800px) {
+      grid-template-columns: 1fr;
+      margin-top: 1rem;
+    }
+
+    &__box {
+      text-align: center;
+      padding: 1rem 6rem;
+
+      @media (max-width: 500px) {
+        padding: 1rem 1rem;
+      }
+
+      img {
+        width: 17rem;
+        height: auto;
+      }
+
+      h3 {
+        font-size: $h3-size;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        font-size: $p-size;
+        font-family: $text-font;
+        color: $text-gray;
+        line-height: 1.43;
+      }
+    }
+  }
+}

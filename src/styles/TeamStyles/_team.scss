@@ -1,0 +1,57 @@
+@use "../global/" as *;
+
+.team-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 4rem;
+  align-items: center;
+  text-align: center;
+  padding: 10rem 2rem;
+  width: 110rem;
+  margin: 0 auto;
+
+  @media (max-width: 1150px) {
+    grid-template-columns: 1fr 1fr;
+    width: fit-content;
+  }
+
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr;
+    width: fit-content;
+  }
+
+  &__box {
+    width: 33rem;
+    background-color: white;
+    box-shadow: 0px 20px 10px 0px rgb(0 0 0 / 8%);
+
+    @media (max-width: 400px) {
+      width: 100%;
+    }
+
+    &__img-div {
+      width: 100%;
+      height: auto;
+      background-color: #f6f6f6;
+      img {
+        width: 100%;
+      }
+    }
+
+    &__descr {
+      color: $text-black;
+      padding: 3rem;
+
+      h3 {
+        font-size: $h4-size;
+      }
+
+      p {
+        font-size: $p-size;
+        font-weight: 500;
+        color: #777777;
+      }
+    }
+  }
+}

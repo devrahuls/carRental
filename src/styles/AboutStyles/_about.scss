@@ -1,0 +1,218 @@
+@use "../global" as *;
+
+// hero for all pages
+.hero-pages {
+  width: 100%;
+  height: 41rem;
+  background-image: url("/src/images/hero/heroes-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+
+  &__overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.92);
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    z-index: 3;
+    position: relative;
+    width: 100%;
+    height: 41rem;
+    justify-content: center;
+    color: $text-black;
+
+    h3 {
+      font-size: 3.6rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: $p-size;
+      font-weight: 600;
+
+      a {
+        color: $text-black;
+        text-decoration: none;
+        transition: all 0.2s;
+
+        &:hover {
+          color: $text-orange;
+        }
+      }
+    }
+  }
+}
+
+// about scss
+.about-main {
+  margin: 10rem auto;
+  display: flex;
+  gap: 5rem;
+  max-width: 90rem;
+  align-items: center;
+
+  @media (max-width: 960px) {
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: center;
+    max-width: 49rem;
+  }
+
+  @media (max-width: 520px) {
+    max-width: 100%;
+  }
+
+  &__img {
+    width: 43rem;
+    height: 43rem;
+
+    @media (max-width: 960px) {
+      margin: 0 auto;
+    }
+
+    @media (max-width: 520px) {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__text {
+    color: $text-black;
+    display: flex;
+    flex-direction: column;
+
+    h3 {
+      font-size: $h4-size;
+      font-family: $text-font;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: $h2-size;
+      line-height: 1.2;
+    }
+
+    p {
+      font-size: $p-size;
+      color: $text-gray;
+      font-family: $text-font;
+      line-height: 1.5;
+      margin-top: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    &__icons {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 4rem;
+
+      @media (max-width: 520px) {
+        grid-template-columns: 1fr;
+        margin: 0 auto;
+        gap: 0;
+
+        p {
+          margin-top: 0;
+        }
+      }
+
+      &__box {
+        display: flex;
+        flex-direction: column;
+
+        @media (max-width: 520px) {
+          align-items: center;
+        }
+
+        .last-fk {
+          width: 5rem;
+        }
+
+        img {
+          width: 7rem;
+        }
+
+        span {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+
+          @media (max-width: 520px) {
+            text-align: center;
+            flex-direction: column;
+          }
+
+          h4 {
+            font-size: 4.6rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.book-banner {
+  display: flex;
+  width: 100%;
+  height: 20rem;
+  background-image: url("/src/images/banners/book-banner.png");
+  position: relative;
+  margin-top: 7rem;
+
+  @media (max-width: 750px) {
+    height: fit-content;
+    padding: 1rem 0;
+  }
+
+  &__overlay {
+    background-color: #2d2d2d;
+    opacity: 0.89;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
+.text-content {
+  color: white;
+  z-index: 5;
+  position: relative;
+  width: 100%;
+  height: 20rem;
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+
+  @media (max-width: 750px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 3.2rem;
+  }
+
+  span {
+    display: flex;
+    font-size: 2.7rem;
+    gap: 1rem;
+    align-items: center;
+    color: $text-orange;
+    white-space: nowrap;
+  }
+}
